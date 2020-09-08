@@ -1,6 +1,8 @@
 import React, { useEffect, useState, useRef } from "react";
 import axios from "axios";
 
+import MovieCard from "../components/MovieCard";
+
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
@@ -16,6 +18,8 @@ const Wrapper = styled.div`
     width: 90%;
     margin: 0 auto;
 `;
+
+const 
 
 const Box = styled.div``;
 
@@ -69,10 +73,39 @@ const Movies = (props) => {
 
             <Box>
 
+            {data.map((props, i) => (
+                <CardWrap
+                    // strains={props.strains}
+                  key={i}
+                  movie_id={props.imdb_ID}
+                  name={props.Title}
+                  year={props.Released}
+                  poster={props.Poster}
+                  description={props.strain_description}
+                  awards={props.Awards}
+                  rating={props.Ratings.map((Value, i) => 
+                        <li key={i}>{Value}</li>
+                  )}
+                  strain_flavors={props.strain_flavors}
+                  flavors={props.strain_flavors.map((flavor, i) => 
+                    <li key={i}>{flavor}</li>
+                  )}
+                />
+            ))}
+
             </Box>
         
         </Wrapper>
     )
 }
 
-export default Movies;
+const mapStateToProps = state => ({
+    movies: state.movieReducer.movies,
+    error: state.movieReducer.error,
+    isFetching: state.movieReducer.isFetching
+});
+
+export default connect(
+    mapStateToProps,
+    { getMovies }
+)(Movies);
