@@ -15,7 +15,7 @@ const SearchBar = (props) => {
             <Form>
                 <Form.Group controlId="formBasicEmail">
                     <Form.Label>Search Movies</Form.Label>
-                    <Form.Control type="email" placeholder="Enter email" />
+                    <Form.Control type="text" placeholder="Enter Title" />
                     <Form.Text className="text-muted">
                     Search movies by title to nominate for The Shoppies.
                     </Form.Text>

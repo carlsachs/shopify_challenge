@@ -9,8 +9,8 @@ import SearchBar from "./components/SearchBar";
 
 //styled-components
 const Top = styled.div`
-  width: 100%;
-  height: 500px;
+  width: 80%;
+  margin: 0 auto;
 `;
 
 function App(props) {
