@@ -10,7 +10,7 @@ export const getMovies = () => {
     return dispatch => {
       dispatch({ type: FETCH_MOVIES_START });
       axios
-        .get("http://www.omdbapi.com/?i=tt3896198&apikey=a06127f9")
+        .get("http://www.omdbapi.com/?t=a&apikey=a06127f9")
         .then(res => {
           console.log(res.data);
           dispatch({ type: FETCH_MOVIES_SUCCESS, payload: res.data });

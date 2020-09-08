@@ -32,10 +32,10 @@ const Movies = (props) => {
 
     useEffect(() => {
         axios
-            .get("http://www.omdbapi.com/?i=tt3896198&apikey=a06127f9")
+            .get(`http://www.omdbapi.com/?t=${query}&apikey=a06127f9`)
             .then(res => {
                 console.log(res);
-                const searchResult = res.data.filter(item => item.Title.toLowerCase().includes(query.toLowerCase()));
+                const searchResult = res.data.filter(item => item.props.Title.toLowerCase().includes(query.toLowerCase()));
                 setData(searchResult);
             })
             .catch(err => console.log(err));
@@ -49,7 +49,7 @@ const Movies = (props) => {
         <Wrapper>
 
             <Title>
-                <h2>Movies</h2>
+                <h2>Movies up for Nomination</h2>
             </Title>
 
             <Form>
@@ -68,7 +68,7 @@ const Movies = (props) => {
             </Form>
 
             <Box>
-            <Button variant="primary">Get All Movies</Button>{' '}
+
             </Box>
         
         </Wrapper>
