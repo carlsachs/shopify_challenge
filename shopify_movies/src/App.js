@@ -5,7 +5,7 @@ import styled from "styled-components";
 import './App.css';
 
 //components
-import SearchBar from "./components/SearchBar";
+import Movies from "./components/Movies";
 
 //styled-components
 const Top = styled.div`
@@ -19,7 +19,7 @@ function App(props) {
 
       <Top>
 
-        <SearchBar />
+        <Movies />
 
       </Top>
 
